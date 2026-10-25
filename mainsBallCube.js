@@ -34,22 +34,10 @@ const light = new THREE.PointLight(
 light.position.set(5, 5, 5);
 scene.add(light);
 
-
-// ======================
 // 車輪クラス
-// ======================
-
 class wheel extends THREE.Object3D {
 
-  constructor(
-    radius,
-    width,
-    segments,
-    color,
-    x,
-    y,
-    z
-  ) {
+  constructor(radius, width, segments, color, x, y, z) {
 
     super();
 
@@ -81,16 +69,10 @@ class wheel extends THREE.Object3D {
   }
 }
 
-
-// ======================
 // 機関車グループ
-// ======================
-
 const trainGroup = new THREE.Group();
 
-
-// 車体（緑の円筒）
-
+// 車体
 const bodyGeo = new THREE.CylinderGeometry(
   1,
   1,
@@ -112,9 +94,7 @@ body.position.set(0, 1, 0);
 
 trainGroup.add(body);
 
-
-// 運転席（青い箱）
-
+// 運転席
 const cabinGeo = new THREE.BoxGeometry(
   2,
   3,
@@ -138,9 +118,7 @@ cabin.position.set(
 
 trainGroup.add(cabin);
 
-
 // 煙突
-
 const chimneyGeo = new THREE.CylinderGeometry(
   0.3,
   0.3,
@@ -165,11 +143,7 @@ chimney.position.set(
 
 trainGroup.add(chimney);
 
-
-// ======================
 // 赤い大車輪
-// ======================
-
 const wheelBig1 = new wheel(
   0.9,
   0.3,
@@ -193,17 +167,13 @@ const wheelBig2 = new wheel(
 trainGroup.add(wheelBig1);
 trainGroup.add(wheelBig2);
 
-
-// ======================
 // 黄色い小車輪
-// ======================
-
 const wheelSmall1 = new wheel(
   0.55,
   0.25,
   32,
   0xffff00,
-  -1.4,
+  -1.0,
   0.45,
   -1.1
 );
@@ -213,7 +183,7 @@ const wheelSmall2 = new wheel(
   0.25,
   32,
   0xffff00,
-  0.4,
+  0.2,
   0.45,
   -1.1
 );
@@ -223,7 +193,7 @@ const wheelSmall3 = new wheel(
   0.25,
   32,
   0xffff00,
-  -1.4,
+  -1.0,
   0.45,
   1.1
 );
@@ -233,7 +203,7 @@ const wheelSmall4 = new wheel(
   0.25,
   32,
   0xffff00,
-  0.4,
+  0.2,
   0.45,
   1.1
 );
@@ -243,13 +213,7 @@ trainGroup.add(wheelSmall2);
 trainGroup.add(wheelSmall3);
 trainGroup.add(wheelSmall4);
 
-
 scene.add(trainGroup);
-
-
-// ======================
-// アニメーション
-// ======================
 
 function animate() {
 
